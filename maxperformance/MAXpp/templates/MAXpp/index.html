@@ -1,0 +1,18 @@
+<p>MAX pp!</p>
+<br>
+{% if user and user.is_authenticated %}
+    <p>Welcome, {{ user }}</p>
+    <button>
+        <a href="/MAXpp/logout/">Log out</a>
+    </button>
+    <button>
+        <a href="/MAXpp/scores/">View scores</a>
+    </button>
+{% else %}
+    <button>
+        <a href="/MAXpp/login/">Log in</a>
+    </button>
+    <button>
+        <a href="/MAXpp/signup/">Sign up</a>
+    </button>
+{% endif %}

@@ -1,0 +1,17 @@
+h1, th, td, p{
+    font-family: "Verdana", "Arial", sans-serif;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table, th, td{
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2
+}

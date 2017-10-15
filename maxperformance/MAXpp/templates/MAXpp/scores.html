@@ -1,0 +1,49 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'MAXpp/style.css' %}" />
+
+<h1>List of Scores</h1>
+{% if scores_list %}
+    <table>
+        <tr>
+            <th>Song name [Difficulty]</th>
+            <th>Star rating</th>
+            <th>Length</th>
+            <th>BPM</th>
+            <th>R300</th>
+            <th>300</th>
+            <th>200</th>
+            <th>100</th>
+            <th>50</th>
+            <th>Miss</th>
+            <th>Accuracy</th>
+            <th>PP</th>
+        </tr>
+        {% for s in scores_list %}
+            <tr>
+                <td>{{ s.song_name }} [{{ s.difficulty }}]</td>
+                <td><strong>{{ s.display_star }}</strong></td>
+                <td>{{ s.length_min }}:{{ s.length_sec }}</td>
+                <td>{{ s.bpm }}</td>
+                <td>{{ s.count_r300 }}</td>
+                <td>{{ s.count_300 }}</td>
+                <td>{{ s.count_200 }}</td>
+                <td>{{ s.count_100 }}</td>
+                <td>{{ s.count_50 }}</td>
+                <td>{{ s.count_0 }}</td>
+                <td><strong>{{ s.acc }}</strong></td>
+                <td><strong>{{ s.pp }}</strong></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No scores are available. What are you waiting for?</p>
+{% endif %}
+<br>
+<button>
+    <a href="/MAXpp/scores/add/">Add scores</a>
+</button>
+<br>
+<button>
+    <a href="/MAXpp/">Back</a>
+</button>
