@@ -25,6 +25,7 @@ def scores_view(request, username):
     diff_list = []
     star_list = []
     bpm_list = []
+    time_list = []
     min_list = []
     sec_list = []
     listr300 = []
@@ -39,6 +40,7 @@ def scores_view(request, username):
 
     for i in score_data:
         mapid_list.append(i['beatmap_id'])
+
         mods = bin(int(i['enabled_mods']))[2:]
         if len(mods) >= 7:
             if mods[-7] == '1':
@@ -47,12 +49,14 @@ def scores_view(request, username):
                 dt_list.append("")
         else:
             dt_list.append("")
+
         listr300.append(int(i['countgeki']))
         list300.append(int(i['count300']))
         list200.append(int(i['countkatu']))
         list100.append(int(i['count100']))
         list50.append(int(i['count50']))
         list0.append(int(i['countmiss']))
+
         totalnotes = int(i['countgeki']) + int(i['count300']) + int(i['countkatu']) + int(i['count100']) + int(
             i['count50']) + int(i['countmiss'])
         list_acc.append("%.2f" % round(
@@ -65,20 +69,26 @@ def scores_view(request, username):
         v = requests.get(
             "https://osu.ppy.sh/api/get_beatmaps?k=c454ff459212656188160c05723e971579d18dcd&b=" + id)
         map_data = v.json()
+
         for i in map_data:
             title_list.append(i['title'])
         diff_list.append(i['version'])
         star_list.append("%.2f" % round(float(i['difficultyrating']), 2))
-        bpm_list.append(i['bpm'])
-        min_list.append(int(i['hit_length']) // 60)
-        if len(str(int(i['hit_length']) % 60)) == 1:
-            sec_list.append('0' + str(int(i['hit_length']) % 60))
-        else:
-            sec_list.append(str(int(i['hit_length']) % 60))
+        bpm_list.append(int(i['bpm']))
+        time_list.append(int(i['hit_length']))
 
     for i in range(0, len(star_list), 1):
         if dt_list[i] == "+DT":
             star_list[i] = "%.2f" % round(float(star_list[i]) * 1.38, 2)
+            bpm_list[i] = int(bpm_list[i] * 1.5)
+            time_list[i] = int(time_list[i] * 2 / 3)
+
+        min_list.append(time_list[i] // 60)
+        if len(str(time_list[i] % 60)) == 1:
+            sec_list.append('0' + str(time_list[i] % 60))
+        else:
+            sec_list.append(str(time_list[i] % 60))
+
         stars = int(float(star_list[i]))
         maxpp = 20
         while stars > 1:

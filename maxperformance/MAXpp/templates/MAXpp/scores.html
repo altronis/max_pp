@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'MAXpp/style.css' %}"/>
 
 {% if listr300 %}
+    <title>{{ username }}'s Scores</title>
     <h1>List of Scores</h1>
     <h2>{{ username }}   {{ total_pp }}pp</h2>
     <table>
@@ -40,6 +41,7 @@
         {% endfor %}
     </table>
 {% else %}
+    <title>Error</title>
     <h1>Error</h1>
     <p>This user does not exist.</p>
 {% endif %}
