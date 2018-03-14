@@ -7,7 +7,7 @@
     <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 <br>
-<form action='/MAXpp/auth/' method='POST'> {% csrf_token %}
+<form action='/auth/' method='POST'> {% csrf_token %}
     <div>
         <label for='username'> osu! username </label>
         <input name='username' id='username' required>
