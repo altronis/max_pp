@@ -74,7 +74,7 @@ def scores_view(request, username):
             title_list.append(i['title'])
         diff_list.append(i['version'])
         star_list.append("%.2f" % round(float(i['difficultyrating']), 2))
-        bpm_list.append(int(i['bpm']))
+        bpm_list.append(int(float(i['bpm'])))
         time_list.append(int(i['hit_length']))
 
     for i in range(0, len(star_list), 1):
