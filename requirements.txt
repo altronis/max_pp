@@ -2,3 +2,7 @@ gunicorn==19.7.1
 django==1.11.6
 whitenoise==3.3.1
 django-heroku==0.3.1
+oauthlib==2.0.4
+requests==2.18.4
+requests-oauthlib==0.8.0
+urllib3==1.22
