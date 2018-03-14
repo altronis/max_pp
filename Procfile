@@ -1,1 +1,1 @@
-web: gunicorn maxpp.wsgi
+web: gunicorn --pythonpath maxperformance.wsgi
