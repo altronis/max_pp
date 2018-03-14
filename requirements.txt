@@ -1,3 +1,4 @@
 gunicorn==19.7.1
+django==1.11.6
 whitenoise==3.3.1
-Django==1.11.6
+django-heroku==0.3.1
