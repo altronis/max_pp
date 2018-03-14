@@ -1,17 +1,17 @@
-h1, th, td, p{
+h1, h2, th, td, p, label, input, a {
     font-family: "Verdana", "Arial", sans-serif;
 }
 
-table{
+table {
     border-collapse: collapse;
 }
 
-table, th, td{
+table, th, td {
     border: 1px solid black;
     text-align: center;
     padding: 5px;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
     background-color: #f2f2f2
 }
