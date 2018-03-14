@@ -1,1 +1,1 @@
-web: gunicorn maxpp.wsgi --log-file -
+web: gunicorn maxperformance.wsgi --log-file -
